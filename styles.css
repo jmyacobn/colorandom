@@ -7,22 +7,43 @@
 
 .entire-page {
   display: flex;
+  justify-content: center;
   height: 100vh;
+  width: 100%;
 }
 
 .main-section {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
 }
 
 .five-color-display {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-evenly;
+  height: 40%;
+  width: 100%;
 
 }
 
+.color {
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  width: calc(100vh/5);
+}
+
 .single-color-sample {
-  height: 12vh;
+  height: 100px;
   width: 12vw;
   background-color: black;
 
+}
+
+p {
+
+}
+
+.saved-section {
+  width: 20%;
 }
