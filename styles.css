@@ -1,0 +1,28 @@
+* {
+  background-color: #FEF6F0;
+  border: 1px solid magenta;
+  box-sizing: border-box;
+  font-family: "Baloo 2", sans-serif;
+}
+
+.entire-page {
+  display: flex;
+  height: 100vh;
+}
+
+.main-section {
+  width: 100%;
+}
+
+.five-color-display {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.single-color-sample {
+  height: 12vh;
+  width: 12vw;
+  background-color: black;
+
+}
