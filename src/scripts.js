@@ -43,11 +43,10 @@ function displayRandomPalette() {
 function toggleLock() {
   for (var i = 0; i < locks.length; i ++) {
     if (event.target === locks[i]) {
-      var lockStatus = document.querySelector(`.lock`);
-      if (lockStatus.innerHTML === '🔓') {
-        lockStatus.innerHTML = '🔒';
+      if (locks[i].innerHTML === '🔓') {
+        locks[i].innerHTML = '🔒';
       } else {
-        lockStatus.innerHTML = '🔓';
+        locks[i].innerHTML = '🔓';
         }
       }
     }
