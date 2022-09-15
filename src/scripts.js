@@ -29,6 +29,7 @@ var lock3 = document.querySelector('#lock3')
 var lock4 = document.querySelector('#lock4')
 var lock5 = document.querySelector('#lock5')
 var newButton = document.querySelector('.new-palette-button')
+var fiveColorDisplay = document.querySelectorAll('.five-color-display')
 //~~~~~~~~~~~~~~~~~~~~
 window.addEventListener('load', displayRandomPalette);
 newButton.addEventListener('click', displayRandomPalette);
@@ -38,13 +39,34 @@ lock3.addEventListener('click', toggleLock);
 lock4.addEventListener('click', toggleLock);
 lock5.addEventListener('click', toggleLock);
 //~~~~~~~~~~~~~~~~~~~~
-function displayRandomPalette() {
 
-  var new1 = new Color(generateCode());
-  var new2 = new Color(generateCode());
-  var new3 = new Color(generateCode());
-  var new4 = new Color(generateCode());
-  var new5 = new Color(generateCode());
+
+function displayRandomPalette() {
+  if (lock1.innerText === '🔒') {
+    var new1 = new Color(text1.innerText, true);
+  } else {
+    var new1 = new Color(generateCode());
+  }
+  if (lock2.innerText === '🔒') {
+    var new2 = new Color(text2.innerText, true);
+  } else {
+    var new2 = new Color(generateCode());
+  }
+  if (lock3.innerText === '🔒') {
+    var new3 = new Color(text3.innerText, true);
+  } else {
+    var new3 = new Color(generateCode());
+  }
+  if (lock4.innerText === '🔒') {
+    var new4 = new Color(text4.innerText, true);
+  } else {
+    var new4 = new Color(generateCode());
+  }
+  if (lock5.innerText === '🔒') {
+    var new5 = new Color(text5.innerText, true);
+  } else {
+    var new5 = new Color(generateCode());
+  }
 
   var newPalette = new Palette(new1, new2, new3, new4, new5);
 
