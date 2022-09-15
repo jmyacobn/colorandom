@@ -22,6 +22,7 @@ var text2 = document.querySelector('#p2')
 var text3 = document.querySelector('#p3')
 var text4 = document.querySelector('#p4')
 var text5 = document.querySelector('#p5')
+var locks = document.querySelectorAll('.lock')
 var lock1 = document.querySelector('#lock1')
 var lock2 = document.querySelector('#lock2')
 var lock3 = document.querySelector('#lock3')
@@ -31,11 +32,11 @@ var newButton = document.querySelector('.new-palette-button')
 //~~~~~~~~~~~~~~~~~~~~
 window.addEventListener('load', displayRandomPalette);
 newButton.addEventListener('click', displayRandomPalette);
-// lock1.addEventListener('click', toggleLock);
-// lock2.addEventListener('click', toggleLock);
-// lock3.addEventListener('click', toggleLock);
-// lock4.addEventListener('click', toggleLock);
-// lock5.addEventListener('click', toggleLock);
+lock1.addEventListener('click', toggleLock);
+lock2.addEventListener('click', toggleLock);
+lock3.addEventListener('click', toggleLock);
+lock4.addEventListener('click', toggleLock);
+lock5.addEventListener('click', toggleLock);
 //~~~~~~~~~~~~~~~~~~~~
 function displayRandomPalette() {
 
@@ -62,6 +63,12 @@ function displayRandomPalette() {
 
 function toggleLock() {
   //Change emoji AND force boolean toggle
+  for (var i = 0; i < locks.length; i ++) {
+    if (event.target === locks[i]) {
+      locks[i].innerText = '🔒'
+
+    }
+  }
 
 }
 
