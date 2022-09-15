@@ -1,20 +1,20 @@
 //~~~~~~~~~~~~~~~~~~~~
-class Color {
-  constructor(code, locked) {
-    this.code = code;
-    this.locked = locked || false;
-  };
-};
-class Palette {
-  constructor(color1, color2, color3, color4, color5) {
-    this.color1 = color1.code;
-    this.color2 = color2.code;
-    this.color3 = color3.code;
-    this.color4 = color4.code;
-    this.color5 = color5.code;
-    this.id = Date.now();
-  }
-}
+// class Color {
+//   constructor(code, locked) {
+//     this.code = code;
+//     this.locked = locked || false;
+//   };
+// };
+// class Palette {
+//   constructor(color1, color2, color3, color4, color5) {
+//     this.color1 = color1.code;
+//     this.color2 = color2.code;
+//     this.color3 = color3.code;
+//     this.color4 = color4.code;
+//     this.color5 = color5.code;
+//     this.id = Date.now();
+//   }
+// }
 //~~~~~~~~~~~~~~~~~~~~
 var characters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F']
 var text1 = document.querySelector('#p1')
