@@ -63,7 +63,8 @@ function displaySavedPalette () {
     <div></div>
     <div></div>
     </section>`
-       // console.log(savedPalettes[i].id): this gives us the id for every newPalette instance in the savedPalettes array
+    //I am thinking of putting lines 46, 48, 50, 52, 54 equal to the .styling.backgroundColor for each div above. Similar to how we did it in line 92.
+    // console.log(savedPalettes[i].id): this gives us the id for every newPalette instance in the savedPalettes array
   }
 }
 
