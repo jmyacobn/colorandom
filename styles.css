@@ -80,3 +80,23 @@ h2 {
 .lock {
   cursor: pointer;
 }
+
+.single-mini-palette {
+  border: 2px solid purple;
+  display: flex;
+  flex-wrap: wrap;
+  height: fit-content;
+  margin-left: 5px;
+  justify-content: space-evenly;
+
+
+}
+
+.mini-color-sample {
+  border: 2px solid green;
+  border-radius: 0.5em;
+  height: 3vw;
+  width: 3vw;
+  display: flex;
+  flex-direction: row;
+}
