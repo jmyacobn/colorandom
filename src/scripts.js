@@ -38,25 +38,8 @@ saveButton.addEventListener('click', displaySavedPalette)
 // Functions and Event Handlers~~~~~~~~~~~~~~~~~~~~
 function displaySavedPalette () {
   savedPalettes.push(newPalette)
-  // the above line pushed the newPalette instances into the savedPalettes array.Console.log(savedPalettes) on this line to see what I am talking about.
-  // we need a for loop to iterate through the savedPalettes array, see below:
   var savedPaletteHTML = ""
   for (var i = 0; i < savedPalettes.length; i++) {
-    // now as we iterate throught the savedPalettes array, we need to acess 5 things from each newPalette instance that was saved in this array: we need the code of each of the 5 colors saved.
-    // as you can see for the new palette array, we need: (you can console log each line below to see!) *** Side note: I thought about looping through the below but then we would have a nested for loop.
-    savedPalettes[i].colors[0].code
-    // this gives us the first color of the 5 colors code for the ith element in the savedPalettes array (aka the ith newPalette that was stored there)
-    savedPalettes[i].colors[1].code
-    // gives second color of the 5 codes
-    savedPalettes[i].colors[2].code
-    // gives third color of the 5 codes
-    savedPalettes[i].colors[3].code
-    // give fourth color of the 5 codes
-    savedPalettes[i].colors[4].code
-    // gives fifth color of the 5 codes
-    // now we just have to take this 5 color codes of each newPalette and display them
-    // I am thinking that we use the .innerHTML to create a new section with the unique id of the newPalette instance. In the new section we should have innerHTML that creates 5 sibling divs with the class of mini-palette so that we can size them all at once. Each of the 5 mini divs will also have .styling.backgroundColor
-
     savedPaletteHTML += `
     <section class= single-mini-palette>
     <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[0].code}'></div>
@@ -66,12 +49,8 @@ function displaySavedPalette () {
     <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[4].code}'></div>
     <p class='delete-img'>🗑️</p>
     </section>`
-
-    //I am thinking of putting lines 46, 48, 50, 52, 54 equal to the .styling.backgroundColor for each div above. Similar to how we did it in line 92.
-    // console.log(savedPalettes[i].id): this gives us the id for every newPalette instance in the savedPalettes array
   }
-  miniPalettesSection.innerHTML = savedPaletteHTML
-  //might work
+  miniPalettesSection.innerHTML = savedPaletteHTML;
 }
 
 function displayRandomPalette () {
