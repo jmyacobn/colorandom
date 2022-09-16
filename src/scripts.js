@@ -25,6 +25,7 @@ var locks = document.querySelectorAll('.lock')
 var newButton = document.querySelector('.new-palette-button')
 var fiveColorDisplay = document.querySelectorAll('.five-color-display')
 var saveButton = document.querySelector('.save-palette-button')
+var miniPalettesSection = document.querySelector('.mini-palettes')
 
 // Event Listeners~~~~~~~~~~~~~~~~~~~~
 window.addEventListener('load', displayRandomPalette)
@@ -41,15 +42,28 @@ function displaySavedPalette () {
   // we need a for loop to iterate through the savedPalettes array, see below:
   for (var i = 0; i < savedPalettes.length; i++) {
     // now as we iterate throught the savedPalettes array, we need to acess 5 things from each newPalette instance that was saved in this array: we need the code of each of the 5 colors saved.
-    // as you can see for the new palette array, we need: (you can console log each line below to see!)
-    savedPalettes[i].colors[0].code // this gives us the first color of the 5 colors code for the ith element in the savedPalettes array (aka the ith newPalette that was stored there)
-    savedPalettes[i].colors[1].code // gives second color of the 5 codes
-    savedPalettes[i].colors[2].code //gives third color of the 5 codes
-    savedPalettes[i].colors[3].code //give fourth color of the 5 codes
-    savedPalettes[i].colors[4].code //gives fifth color of the 5 codes
-    //now we just have to take this 5 color codes of each newPalette and display them
-//I am thinking that we use the .innerHTML to create a new section with the unique id of the newPalette instance. In the new section we should have innerHTML that creates 5 sibling divs with the class of mini-palette so that we can size them all at once. Each of the 5 mini divs will also have .styling.backgroundColor
-
+    // as you can see for the new palette array, we need: (you can console log each line below to see!) *** Side note: I thought about looping through the below but then we would have a nested for loop.
+    savedPalettes[i].colors[0].code
+    // this gives us the first color of the 5 colors code for the ith element in the savedPalettes array (aka the ith newPalette that was stored there)
+    savedPalettes[i].colors[1].code
+    // gives second color of the 5 codes
+    savedPalettes[i].colors[2].code
+    // gives third color of the 5 codes
+    savedPalettes[i].colors[3].code
+    // give fourth color of the 5 codes
+    savedPalettes[i].colors[4].code
+    // gives fifth color of the 5 codes
+    // now we just have to take this 5 color codes of each newPalette and display them
+    // I am thinking that we use the .innerHTML to create a new section with the unique id of the newPalette instance. In the new section we should have innerHTML that creates 5 sibling divs with the class of mini-palette so that we can size them all at once. Each of the 5 mini divs will also have .styling.backgroundColor
+    miniPalettesSection.innerHTML = `
+    <section id= ${savedPalettes[i].id}>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    </section>`
+       // console.log(savedPalettes[i].id): this gives us the id for every newPalette instance in the savedPalettes array
   }
 }
 
