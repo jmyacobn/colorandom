@@ -4,7 +4,7 @@
 Colorandom is a web-based application that generates color palettes. Using JavaScript in conjunction with CSS and HTML, we built Colorandom to allow users to generate random color palettes, lock and unlock colors generating more customized palettes, and save their favorite color palettes. Note: saved palettes will not persist across page refreshes.
 
 ### Installation Instructions:
-- Clone [this repo] (https://github.com/Courtney-Lippman/colorandom) to your local computer.
+- Clone [this repo](https://github.com/Courtney-Lippman/colorandom) to your local computer.
 - Open in your text editor.
 - Read the README.md.
 - In the terminal, run the command open index.html for initial deployment and interaction with app.
@@ -47,5 +47,5 @@ This project was completed during our fourth week at Turing. It was our second c
 - One of our initial challenges in this project was that we were updating our data model and the DOM independently of each other, and the two were not in sync. This led to some issues that forced us to go back and refactor our code.
 
 ### Future Features:
-- Add local storage so that saved palettes are stored locally and persists upon page refresh
+- Add local storage so that saved palettes are stored locally and persist upon page refresh
 - Modify Palette class to generate colors that follow a specific algorithm that ensures colors in the palette are aesthetically pleasing color combinations after researching how hex codes are generated and color psychology
