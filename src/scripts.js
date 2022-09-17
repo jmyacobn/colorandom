@@ -33,12 +33,16 @@ newButton.addEventListener('click', displayRandomPalette)
 for (var i = 0; i < locks.length; i++) {
   locks[i].addEventListener('click', toggleLock)
 }
-saveButton.addEventListener('click', displaySavedPalette)
+saveButton.addEventListener('click', savePalette)
 
 // Functions and Event Handlers~~~~~~~~~~~~~~~~~~~~
-function displaySavedPalette () {
+function savePalette () {
   savedPalettes.push(newPalette)
-  var savedPaletteHTML = ""
+  displaySavedPalette()
+}
+
+function displaySavedPalette () {
+  var savedPaletteHTML = ''
   for (var i = 0; i < savedPalettes.length; i++) {
     savedPaletteHTML += `
     <section class= single-mini-palette>
@@ -50,7 +54,7 @@ function displaySavedPalette () {
     <p class='delete-img'>🗑️</p>
     </section>`
   }
-  miniPalettesSection.innerHTML = savedPaletteHTML;
+  miniPalettesSection.innerHTML = savedPaletteHTML
 }
 
 function displayRandomPalette () {
@@ -63,7 +67,13 @@ function displayRandomPalette () {
     }
   }
 
-  newPalette = new Palette(newArray[0], newArray[1], newArray[2], newArray[3], newArray[4])
+  newPalette = new Palette(
+    newArray[0],
+    newArray[1],
+    newArray[2],
+    newArray[3],
+    newArray[4]
+  )
 
   for (var i = 0; i < newPalette.colors.length; i++) {
     document.getElementById(
