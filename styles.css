@@ -104,4 +104,5 @@ h2 {
 
 .delete-img {
   font-size: 1.75em;
+  cursor: pointer;
 }
