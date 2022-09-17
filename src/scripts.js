@@ -19,6 +19,7 @@ var characters = [
 ]
 var savedPalettes = []
 var newPalette
+
 // Query Selectors~~~~~~~~~~~~~~~~~~~~
 var texts = document.querySelectorAll('.text')
 var locks = document.querySelectorAll('.lock')
@@ -37,14 +38,57 @@ saveButton.addEventListener('click', savePalette)
 miniPalettesSection.addEventListener('click', deleteSavedPalette)
 
 // Functions and Event Handlers~~~~~~~~~~~~~~~~~~~~
-function deleteSavedPalette(event) {
-  console.log(event)
-  for (var i = 0; i < savedPalettes.length; i++) {
-    if (event.target.classList.contains('delete-img') && savedPalettes[i].id === parseInt(event.target.id)) {
-      savedPalettes.splice(i, 1);
+function makeRandomNumber (arrayLength) {
+  return Math.floor(Math.random() * arrayLength)
+}
+
+function generateCode () {
+  var hexArray = []
+
+  for (var i = 0; i < 6; i++) {
+    hexArray.push(characters[makeRandomNumber(characters.length)])
+    var withHash = `#${hexArray.join('')}`
+  }
+  return withHash
+}
+
+function displayRandomPalette () {
+  var color = new Color('#AB263A')
+  newArray = [ color, color, color, color, color ]
+  for (var i = 0; i < 5; i++) {
+    if (locks[i].innerHTML === '\uD83D\uDD12') {
+      newArray[i] = new Color(texts[i].innerText, true)
+    } else {
+      newArray[i] = new Color(generateCode())
     }
   }
-  displaySavedPalette()
+
+  newPalette = new Palette(
+    newArray[0],
+    newArray[1],
+    newArray[2],
+    newArray[3],
+    newArray[4]
+  )
+
+  for (var i = 0; i < newPalette.colors.length; i++) {
+    document.getElementById(
+      `sample-${i + 1}`
+    ).style.backgroundColor = newPalette.colors[i].code
+    texts[i].innerText = newPalette.colors[i].code
+  }
+}
+
+function toggleLock () {
+  for (var i = 0; i < 5; i++) {
+    if (newArray[i].locked === false) {
+      event.target.innerText = '\uD83D\uDD12'
+      newArray[i].locked = true
+    } else {
+      event.target.innerText = '\uD83D\uDD13'
+      newArray[i].locked = false
+    }
+  }
 }
 
 function savePalette () {
@@ -52,7 +96,7 @@ function savePalette () {
     savedPalettes.push(newPalette)
     displaySavedPalette()
   } else {
-    alert("This palette is already saved. Choose a new palette.")
+    alert('This palette is already saved. Choose a new palette.')
   }
 }
 
@@ -66,53 +110,20 @@ function displaySavedPalette () {
       <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[2].code}'></div>
       <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[3].code}'></div>
       <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[4].code}'></div>
-      <p class='delete-img' id="${savedPalettes[i].id}">🗑️</p>
+      <p class='delete-img' id='${savedPalettes[i].id}'>🗑️</p>
     </section>`
   }
   miniPalettesSection.innerHTML = savedPaletteHTML
 }
 
-function displayRandomPalette() {
-  var color = new Color('#AB263A');
-  newArray = [color, color, color, color, color];
-    for (var i = 0; i < 5; i ++) {
-      if (locks[i].innerHTML === '🔒') {
-        newArray[i] = new Color(texts[i].innerText, true);
-      } else {
-        newArray[i] = new Color(generateCode());
-      }
+function deleteSavedPalette (event) {
+  for (var i = 0; i < savedPalettes.length; i++) {
+    if (
+      event.target.classList.contains('delete-img') &&
+        savedPalettes[i].id === parseInt(event.target.id)
+    ) {
+      savedPalettes.splice(i, 1)
     }
-
-  newPalette = new Palette(newArray[0], newArray[1], newArray[2], newArray[3], newArray[4]);
-
-  for (var i = 0; i < newPalette.colors.length; i ++) {
-    document.getElementById(`sample-${i+1}`).style.backgroundColor = newPalette.colors[i].code;
-    texts[i].innerText = newPalette.colors[i].code;
   }
-};
-
-function toggleLock() {
-  for (var i = 0; i < 5; i ++) {
-      if (newArray[i].locked === false) {
-        event.target.innerText = '🔒';
-        newArray[i].locked = true;
-      } else {
-        event.target.innerText = '🔓';
-        newArray[i].locked = false;
-      }
-  }
-}
-
-function generateCode () {
-  var hexArray = []
-
-  for (var i = 0; i < 6; i++) {
-    hexArray.push(characters[makeRandomNumber(characters.length)])
-    var withHash = `#${hexArray.join('')}`
-  }
-  return withHash
-}
-
-function makeRandomNumber (arrayLength) {
-  return Math.floor(Math.random() * arrayLength)
+  displaySavedPalette()
 }
