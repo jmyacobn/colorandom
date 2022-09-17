@@ -34,8 +34,19 @@ for (var i = 0; i < locks.length; i++) {
   locks[i].addEventListener('click', toggleLock)
 }
 saveButton.addEventListener('click', savePalette)
+miniPalettesSection.addEventListener('click', deleteSavedPalette)
 
 // Functions and Event Handlers~~~~~~~~~~~~~~~~~~~~
+function deleteSavedPalette(event) {
+  console.log(event)
+  for (var i = 0; i < savedPalettes.length; i++) {
+    if (event.target.classList.contains('delete-img') && savedPalettes[i].id === parseInt(event.target.id)) {
+      savedPalettes.splice(i, 1);
+    }
+  }
+  displaySavedPalette()
+}
+
 function savePalette () {
   savedPalettes.push(newPalette)
   displaySavedPalette()
@@ -46,12 +57,12 @@ function displaySavedPalette () {
   for (var i = 0; i < savedPalettes.length; i++) {
     savedPaletteHTML += `
     <section class= single-mini-palette>
-    <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[0].code}'></div>
-    <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[1].code}'></div>
-    <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[2].code}'></div>
-    <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[3].code}'></div>
-    <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[4].code}'></div>
-    <p class='delete-img'>🗑️</p>
+      <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[0].code}'></div>
+      <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[1].code}'></div>
+      <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[2].code}'></div>
+      <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[3].code}'></div>
+      <div class='mini-color-sample' style='background-color: ${savedPalettes[i].colors[4].code}'></div>
+      <p class='delete-img' id="${savedPalettes[i].id}">🗑️</p>
     </section>`
   }
   miniPalettesSection.innerHTML = savedPaletteHTML
