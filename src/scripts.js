@@ -68,41 +68,34 @@ function displaySavedPalette () {
   miniPalettesSection.innerHTML = savedPaletteHTML
 }
 
-function displayRandomPalette () {
-  var newArray = []
-  for (var i = 0; i < 5; i++) {
-    if (locks[i].innerText === '\uD83D\uDD12') {
-      newArray[i] = new Color(texts[i].innerText, true)
-    } else {
-      newArray[i] = new Color(generateCode())
-    }
-  }
-
-  newPalette = new Palette(
-    newArray[0],
-    newArray[1],
-    newArray[2],
-    newArray[3],
-    newArray[4]
-  )
-
-  for (var i = 0; i < newPalette.colors.length; i++) {
-    document.getElementById(
-      `sample-${i + 1}`
-    ).style.backgroundColor = newPalette.colors[i].code
-    texts[i].innerText = newPalette.colors[i].code
-  }
-}
-
-function toggleLock () {
-  for (var i = 0; i < locks.length; i++) {
-    if (event.target === locks[i]) {
-      if (locks[i].innerHTML === '\uD83D\uDD13') {
-        locks[i].innerHTML = '\uD83D\uDD12'
+function displayRandomPalette() {
+  var color = new Color('#AB263A');
+  newArray = [color, color, color, color, color];
+    for (var i = 0; i < 5; i ++) {
+      if (locks[i].innerHTML === '🔒') {
+        newArray[i] = new Color(texts[i].innerText, true);
       } else {
-        locks[i].innerHTML = '\uD83D\uDD13'
+        newArray[i] = new Color(generateCode());
       }
     }
+
+  newPalette = new Palette(newArray[0], newArray[1], newArray[2], newArray[3], newArray[4]);
+
+  for (var i = 0; i < newPalette.colors.length; i ++) {
+    document.getElementById(`sample-${i+1}`).style.backgroundColor = newPalette.colors[i].code;
+    texts[i].innerText = newPalette.colors[i].code;
+  }
+};
+
+function toggleLock() {
+  for (var i = 0; i < 5; i ++) {
+      if (newArray[i].locked === false) {
+        event.target.innerText = '🔒';
+        newArray[i].locked = true;
+      } else {
+        event.target.innerText = '🔓';
+        newArray[i].locked = false;
+      }
   }
 }
 
