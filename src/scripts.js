@@ -48,8 +48,12 @@ function deleteSavedPalette(event) {
 }
 
 function savePalette () {
-  savedPalettes.push(newPalette)
-  displaySavedPalette()
+  if (!savedPalettes.includes(newPalette)) {
+    savedPalettes.push(newPalette)
+    displaySavedPalette()
+  } else {
+    alert("This palette is already saved. Choose a new palette.")
+  }
 }
 
 function displaySavedPalette () {
