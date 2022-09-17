@@ -12,9 +12,14 @@
 .main-section {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  min-height: 100vh;
   width: 80%;
+}
+
+.main-content-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .saved-section {
