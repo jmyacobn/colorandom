@@ -11,7 +11,8 @@ Colorandom is a web-based application that generates color palettes. Using JavaS
 
 ### Preview of App:
 You can visit the live site [here](https://courtney-lippman.github.io/colorandom/).
-[![IMAGE ALT TEXT HERE](https://www.loom.com/share/de6d5335533a4bfb827d341ff4a8b25f/0.jpg)](https://www.loom.com/share/de6d5335533a4bfb827d341ff4a8b25f)
+
+![Brief features gif](https://media.giphy.com/media/Ij2TEayiRBU58uKIpF/giphy.gif)
 
 ### Context:
 This project was completed during our fourth week at Turing. It was our second collaborative project and took us five days to complete. The spec for this project can be found [here](https://frontend.turing.edu/projects/module-1/colorandom-v2.html).
