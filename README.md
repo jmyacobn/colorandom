@@ -10,7 +10,7 @@ Colorandom is a web-based application that generates color palettes. Using JavaS
 - In the terminal, run the command open index.html for initial deployment and interaction with app.
 
 ### Preview of App:
-You can visit the live site [here](https://courtney-lippman.github.io/colorandom/).
+You can visit the live site [here](https://jmyacobn.github.io/colorandom/).
 
 ![Brief features gif](https://media.giphy.com/media/Ij2TEayiRBU58uKIpF/giphy.gif)
 
